@@ -1,51 +1,56 @@
-# MongoDB MCP Server
-
 ## Overview
-MongoDB MCP Server is a Model Context Protocol (MCP) server that provides programmatic access to MongoDB NoSQL databases via a static MCP endpoint. It exposes common MongoDB operations as tools that can be invoked from compatible MCP clients and chat applications.
 
-- **Type:** MCP server / database integration
-- **Database:** MongoDB (open source NoSQL database)
-- **MCP endpoint:** `https://mcp.pipedream.net/v2`
+The MongoDB MCP Server enables AI-powered development by connecting MongoDB deployments—whether on MongoDB Atlas, MongoDB Community Edition, or MongoDB Enterprise Advanced—to MCP-supported clients like Windsurf, Cursor, GitHub Copilot in Visual Studio Code, and Anthropic's Claude.
 
-## Features
+## Key Features (Winter 2026 Update)
 
-### MCP Server & Connectivity
-- Static MCP server URL (`https://mcp.pipedream.net/v2`) usable across different MCP clients.
-- Authentication handled when adding the server to an MCP-compatible application.
-- Works with multiple chat or MCP clients (client-specific setup is done in each app using the same URL).
+- **Performance Advisor Integration**: Directly integrates with Performance Advisor tools in MongoDB Atlas, providing performance insights in your development environment
+- **Automatic Embedding Generation**: The insert-many tool now supports automatic embedding generation for fields with vector search indexes using Voyage AI models
+- **Local Cluster Management**: Create and manage local MongoDB clusters directly from the MCP server
+- **Vector Search Index Support**: CreateIndexTool class now supports both vector search indexes and regular MongoDB indexes
+- **Database Operations**: Full CRUD operations via natural language
+- **Data Exploration**: Query and analyze data using conversational commands
+- **Schema Design**: Design tables and generate migrations
+- **Context-Aware Code Generation**: Generate MongoDB queries and application code with AI assistance
 
-### MongoDB Data Operations (Tools)
-The server exposes 8 MongoDB actions as MCP tools:
+## Supported MongoDB Deployments
 
-1. **Create New Document**
-   - Create a new document in a chosen MongoDB collection.
+- MongoDB Atlas (cloud-hosted)
+- MongoDB Community Edition
+- MongoDB Enterprise Advanced
+- Local MongoDB instances
 
-2. **Find Document**
-   - Find a document using a query filter.
+## Compatible AI Tools
 
-3. **Find Document by ID**
-   - Retrieve a single document by its MongoDB document ID.
+- Windsurf
+- Cursor
+- GitHub Copilot in Visual Studio Code
+- Anthropic's Claude (Claude Desktop and Claude Code)
+- Other MCP-compatible AI assistants
 
-4. **Search Documents**
-   - Search for specific documents based on criteria.
-   - Can also return all documents when desired.
+## Use Cases
 
-5. **Update a Document**
-   - Update a single document by its ID.
+- Natural language database queries
+- Schema design and optimization
+- Performance troubleshooting with AI assistance
+- Automated data migration generation
+- Vector search implementation for AI applications
+- Database administration tasks
+- Query optimization and analysis
 
-6. **Update Documents**
-   - Update many documents at once using a query filter.
+## Technical Capabilities
 
-7. **Execute Aggregation**
-   - Run an aggregation pipeline on a MongoDB collection.
+- Supports aggregation pipelines
+- Vector embeddings for semantic search
+- Full-text search integration
+- Index management (including vector search indexes)
+- Performance monitoring and optimization
+- Connection to multiple databases simultaneously
 
-8. **Delete a Document**
-   - Delete a single document by its ID.
+## Installation
 
-## Configuration
-- Connect a MongoDB account and configure it through the Pipedream interface.
-- Add the MCP server URL to the chosen client, then authenticate within that client.
-- Additional setup details are available on the provider’s configuration page (referenced as “Configuration page” in the source content).
+Available via npm and pip, with detailed setup instructions in the official MongoDB documentation.
 
 ## Pricing
-The provided content does not specify any pricing or plans for MongoDB MCP Server.
+
+Free and open-source. MongoDB Atlas pricing applies for cloud deployments.

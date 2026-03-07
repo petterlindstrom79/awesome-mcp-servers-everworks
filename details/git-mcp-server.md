@@ -1,105 +1,91 @@
-# Git MCP Server
-
-**Brand:** model-context-protocol  
-**Slug:** `git-mcp-server`  
-**Category:** mcp-server-directories-lists  
-**Source:** [PyPI – mcp-server-git](https://pypi.org/project/mcp-server-git/)
-
 ## Overview
 
-Git MCP Server (`mcp-server-git`) is a Python-based Model Context Protocol (MCP) server that allows LLM-based MCP clients to programmatically read, search, and manipulate local Git repositories. It exposes a set of Git-focused tools for inspecting repository state, diffs, commits, branches, and logs, and for performing common Git operations.
+The Git MCP server is an official Anthropic implementation providing comprehensive tools to read, search, and manipulate Git repositories. It enables AI assistants to interact with local Git repositories for version control tasks, code analysis, and repository management.
 
-> Note: The project is in early development; available tools and behavior may change over time.
+## Key Features
 
-## Features
+- **Repository Reading**: Access commit history, branches, and tags
+- **Code Search**: Search through repository contents and history
+- **Branch Management**: Create, switch, and manage branches
+- **Commit Operations**: View commit details, diffs, and metadata
+- **Status Checking**: Check working directory and staging area status
+- **Log Analysis**: Analyze commit history and patterns
+- **Diff Generation**: Generate diffs between commits, branches, or files
+- **Repository Manipulation**: Perform Git operations through AI commands
 
-### General
-- Model Context Protocol server tailored for Git repositories.
-- Enables LLM/MCP clients to interact with local Git repositories programmatically.
-- Supports reading, searching, and manipulating Git repository state.
-- Distributed as a Python package (`mcp-server-git`) on PyPI.
-- Version example: `2025.12.18` (released Dec 18, 2025).
+## Security
 
-### Tools / Operations
-Each tool is exposed as an MCP tool with the listed parameters.
+Anthtropic has fixed three bugs in the official Git MCP server that researchers found could be chained with other MCP tools to remotely execute malicious code or overwrite files via prompt injection. The flaws affect default deployments of mcp-server-git prior to version 2025.12.18.
 
-- **`git_status`**  
-  - Parameters: `repo_path`  
-  - Exposes repository status for the given path.
+**Important**: Users should ensure they're using version 2025.12.18 or later for secure deployments.
 
-- **`git_diff_unstaged`**  
-  - Parameters: `repo_path`, `context_lines`  
-  - Exposes the diff for unstaged changes in the specified repository, with configurable context lines.
+## Use Cases
 
-- **`git_diff_staged`**  
-  - Parameters: `repo_path`, `context_lines`  
-  - Exposes the diff for staged changes in the specified repository, with configurable context lines.
+- **Code Analysis**: Analyze repository history and code patterns
+- **Branch Strategy**: Manage branching workflows and merges
+- **Commit History**: Explore and understand project evolution
+- **Code Review**: Review changes and diffs between versions
+- **Repository Insights**: Generate insights from Git history
+- **Automated Git Operations**: Perform Git tasks via natural language
+- **Project Documentation**: Extract information from commit messages
+- **Contributor Analysis**: Analyze contributor patterns and activity
 
-- **`git_diff`**  
-  - Parameters: `repo_path`, `target`, `context_lines`  
-  - Exposes a generic diff against a specified `target` (e.g., branch, commit, etc.) with configurable context lines.
+## Available Operations
 
-- **`git_commit`**  
-  - Parameters: `repo_path`, `message`  
-  - Creates a commit in the specified repository with the provided commit message.
+**Reading:**
+- Read commit history
+- View file contents at specific commits
+- List branches and tags
+- Show repository status
+- Display commit details
 
-- **`git_add`**  
-  - Parameters: `repo_path`, `files`  
-  - Stages one or more files in the specified repository.
+**Searching:**
+- Search commit messages
+- Search code across history
+- Find commits by author
+- Filter by date ranges
 
-- **`git_reset`**  
-  - Parameters: `repo_path`  
-  - Performs a reset operation in the specified repository (behavior such as mode is not described in the provided content).
+**Analysis:**
+- Generate diffs
+- Compare branches
+- Analyze commit patterns
+- Track file changes over time
 
-- **`git_log`**  
-  - Parameters: `repo_path`, `max_count`, `start_timestamp`, `end_timestamp`  
-  - Exposes the commit log for a repository, with optional limits on number of entries and time range.
+**Management:**
+- Create branches
+- Switch branches
+- View repository configuration
 
-- **`git_create_branch`**  
-  - Parameters: `repo_path`, `branch_name`, `base_branch`  
-  - Creates a new branch from a specified base branch.
+## Integration with Development Tools
 
-- **`git_checkout`**  
-  - Parameters: `repo_path`, `branch_name`  
-  - Checks out the specified branch in the target repository.
+Development tools companies including Zed, Replit, Codeium, and Sourcegraph are working with MCP to enhance their platforms—enabling AI agents to better retrieve relevant information to understand the context around coding tasks.
 
-- **`git_show`**  
-  - Parameters: `repo_path`, `revision`  
-  - Shows information for a given revision (e.g., commit) in the repository.
+## Claude Desktop Integration
 
-- **`git_branch`**  
-  - Parameters: `repo_path`, `branch_type`, `contains`, `not_contains`  
-  - Exposes branch information, supporting optional filtering by branch type and commit containment.
+The setup allows Claude to analyze and interact with Git repositories directly, providing powerful code analysis and version control capabilities through conversational commands.
 
-## Installation & Usage
+## Technical Details
 
-### Install with `uv` (recommended)
-- No dedicated install step required when using [`uv`](https://docs.astral.sh/uv/).
-- Use [`uvx`](https://docs.astral.sh/uv/guides/tools/) to run the server directly:
-  - Command: `uvx mcp-server-git` (as referenced by the one-click install buttons).
+- Part of official modelcontextprotocol/servers repository
+- TypeScript implementation
+- Works with local Git repositories
+- Supports all major Git operations
+- Cross-platform compatibility
 
-### Install with `pip`
-- Install package:
-  ```bash
-  pip install mcp-server-git
-  ```
-- Run as a module after installation:
-  ```bash
-  python -m mcp_server_git
-  ```
+## Compatible MCP Clients
 
-## Configuration & Integrations
+- Claude Desktop
+- Claude Code
+- Cursor
+- VS Code with Copilot
+- Zed
+- Replit
+- Other MCP-compatible AI assistants
 
-### Claude Desktop
-- Can be configured for use with Claude Desktop by adding the server to `claude_desktop_config.json` (exact JSON not included in the provided content).
+## Configuration
 
-### VS Code / VS Code Insiders
-- One-click install links are provided for VS Code and VS Code Insiders.
-- Configuration used by these buttons (conceptually):
-  - Command: `uvx`
-  - Args: `["mcp-server-git"]`
-- Integrates as an MCP server named `git` in VS Code via the MCP extension workflow.
+Typically configured to work with local repositories. Can be scoped to specific repository paths for security.
 
 ## Pricing
 
-- No pricing information is provided in the available content. The project is distributed as a Python package on PyPI; no paid plans or commercial tiers are described.
+Free and open-source under the MIT License.

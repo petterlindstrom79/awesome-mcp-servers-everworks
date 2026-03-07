@@ -1,35 +1,124 @@
-# HubSpot MCP Server
-
 ## Overview
-HubSpot MCP Server is a Model Context Protocol (MCP) server that connects to HubSpot CRM, allowing AI assistants and LLM-based tools to work with HubSpot data using natural language. It supports managing HubSpot contacts and companies directly from within an LLM chat.
 
-- **Repository:** https://github.com/buryhuang/mcp-hubspot  
-- **Docker image:** https://hub.docker.com/r/buryhuang/mcp-hubspot  
-- **License:** MIT  
-- **Brand:** HubSpot  
-- **Category:** mcp-server-directories-lists
+The HubSpot MCP server securely connects MCP-compatible AI clients to your HubSpot CRM data. MCP (Model Context Protocol) is a standardized way for agents built with Large Language Models to securely request and receive specific information from external systems like HubSpot.
 
-## Features
-- **HubSpot CRM integration**  
-  - Connects directly to HubSpot CRM APIs.  
-  - Enables interaction with HubSpot CRM data from AI assistants and LLM tools.
+## Dual Server Types
 
-- **Natural language CRM operations**  
-  - Manage HubSpot contacts via natural language prompts.  
-  - Manage HubSpot companies via natural language prompts.  
-  - Create new CRM records (e.g., contacts, companies) from within an LLM chat.  
-  - Retrieve existing CRM records from within an LLM chat.
+**1. HubSpot MCP Server (Remote)**
+MCP-compatible AI clients can fetch relevant, real-time CRM data (contacts, companies, deals) in a controlled and secure manner.
 
-- **Performance and scalability helpers**  
-  - Built-in vector storage to support semantic operations over HubSpot data.  
-  - Caching mechanisms to:  
-    - Mitigate HubSpot API limitations.  
-    - Improve response times for repeated or similar queries.
+**2. Developer MCP Server (Local)**
+CLI-based server enabling agentic development software to interact with the HubSpot Developer Platform for project scaffolding and management.
 
-- **Deployment & packaging**  
-  - Published Docker image available on Docker Hub (`buryhuang/mcp-hubspot`).  
-  - Source available as an MCP server implementation in this GitHub repository.
+## Key Features
+
+- **Read-Only CRM Access**: Secure access to 11 CRM object types
+- **Natural Language Queries**: Interact with CRM data conversationally
+- **Vector Storage**: Built-in caching to overcome HubSpot API limitations
+- **10-Minute Setup**: Quick installation and configuration
+- **Real-Time Data**: Live CRM data access
+- **Property Access**: Complete access to object property data
+- **API Bridge**: No need to understand complex API structures
+
+## Supported CRM Objects
+
+The HubSpot remote MCP server currently supports read-only access to:
+
+- Contacts
+- Companies
+- Deals
+- Tickets
+- Carts
+- Products
+- Orders
+- Line Items
+- Invoices
+- Quotes
+- Subscriptions
+
+## Use Cases
+
+**Marketing:**
+- Automated lead scoring
+- Contact enrichment
+- Campaign performance analysis
+- Segmentation automation
+- Email automation insights
+
+**Sales:**
+- Deal pipeline analysis
+- Meeting preparation
+- Contact research
+- Revenue forecasting
+- Opportunity tracking
+
+**Service:**
+- Ticket triage
+- Customer history lookup
+- Support analytics
+- SLA monitoring
+- Customer satisfaction tracking
+
+## Quick Setup
+
+Setup takes under 10 minutes:
+
+1. Install npm package
+2. Create HubSpot private app token
+3. Configure Claude Desktop or Claude Code
+4. Start querying CRM data immediately
+
+## Vector Storage & Caching
+
+Built-in features to improve performance:
+
+- Vector storage for semantic search
+- Intelligent caching mechanisms
+- Overcome HubSpot API rate limitations
+- Improved response times
+- Reduced API calls
+
+## Natural Language Interactions
+
+"Show me all contacts from California with deals over $10,000"
+"List open tickets assigned to the support team"
+"Find companies in the technology sector"
+"What deals are closing this month?"
+"Show me products with low inventory"
+
+## Authentication
+
+- HubSpot private app tokens
+- Secure OAuth flow
+- Token-based access
+- Permission scoping
+- API key management
+
+## Compatible MCP Clients
+
+- Claude Desktop
+- Claude Code
+- Cursor
+- VS Code with Copilot
+- Continue
+- Custom MCP implementations
+
+## API Integration
+
+Bridges to HubSpot APIs:
+
+- CRM API
+- Contacts API
+- Companies API
+- Deals API
+- Tickets API
+- Products API
+- Marketing API
+
+## Current Status
+
+Publicly Available in Beta - Active development with ongoing improvements.
 
 ## Pricing
-- **Open-source (MIT License)**  
-  - Free to use, modify, and self-host under the terms of the MIT license.
+
+Free MCP server. HubSpot subscription pricing applies based on tier and features used.

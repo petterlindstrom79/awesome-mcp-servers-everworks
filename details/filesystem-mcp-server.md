@@ -1,54 +1,119 @@
-# FileSystem MCP Server
+## Overview
 
-A secure Model Context Protocol (MCP) server that enables AI assistants (such as Claude) to perform file operations on the local filesystem within a specified project directory. It is designed for safe, controlled AI integration with robust security controls and path validation.
+The Filesystem MCP Server is an official reference implementation from Anthropic that provides secure file operations with configurable access controls. It enables AI assistants to interact with local file systems while maintaining security boundaries.
 
-- **Source:** [GitHub - MarcusJellinghaus/mcp_server_filesystem](https://github.com/MarcusJellinghaus/mcp_server_filesystem)
-- **Category:** file-management-mcp-servers
-- **Tags:** filesystem, file-management, ai-integration, security
-- **License:** MIT
+## Key Features
 
----
+- **Secure File Operations**: Read, write, and modify files within defined boundaries
+- **Configurable Access Controls**: Set allowed directories and restrict access paths
+- **File Search**: Search for files by name and content
+- **Directory Operations**: List, create, and navigate directory structures
+- **File Metadata**: Access file information including size, modification time, and permissions
+- **Safe Defaults**: Prevents access outside configured directories
+- **Error Handling**: Comprehensive error reporting for permission and I/O issues
 
-## Features
+## Available Operations
 
-- **Project Directory Restriction:** All operations are limited to a user-specified project directory; attempts to access files outside this directory are blocked.
-- **List Directory:** List all files and directories within the project directory (filtered by .gitignore and excludes .git folders).
-- **Read File:** Read contents of a file (relative to the project directory).
-- **Save File:** Write content atomically to a file, creating or overwriting as needed.
-- **Append File:** Append content to the end of an existing file.
-- **Delete File:** Permanently remove a file from the filesystem (irreversible, restricted to project directory).
-- **Edit File:** Selectively edit files using advanced pattern matching, with features such as:
-  - Line-based and multi-line content matching
-  - Whitespace normalization
-  - Indentation preservation
-  - Fuzzy matching with confidence scoring
-  - Multiple simultaneous edits
-  - Git-style diff output
-- **Structured Logging:**
-  - Human-readable logs to console
-  - Optional structured JSON logs to file
-  - Function call tracking with parameters, timing, and results
-  - Automatic error context capture
-  - Configurable log levels (DEBUG, INFO, WARNING, ERROR, CRITICAL)
-- **Security:**
-  - Path normalization and validation to prevent path traversal attacks
-  - Atomic file writes to prevent corruption
-  - Delete operations restricted for safety
-- **Integration:**
-  - Compatible with Claude Desktop and other MCP-compatible assistants
-  - Can be used with MCP Inspector for debugging and development
+**Reading:**
+- Read file contents
+- Read file metadata (size, dates, permissions)
+- List directory contents
+- Search for files by pattern
 
-## Installation & Usage
+**Writing:**
+- Create new files
+- Modify existing files
+- Append to files
+- Delete files (when permitted)
 
-- Clone the repository and install with Python (see details in the [README](https://github.com/MarcusJellinghaus/mcp_server_filesystem#installation)).
-- Run the server specifying the project directory and optional logging parameters.
-- Integrate with Claude Desktop or test/debug with MCP Inspector.
+**Navigation:**
+- Change directories within allowed paths
+- Traverse directory trees
+- Resolve relative paths
+
+**Search:**
+- Search by filename patterns
+- Search file contents
+- Filter by file type or extension
+
+## Security Model
+
+The server implements a strict security model:
+
+1. **Allowed Directories**: Configure specific directories the AI can access
+2. **Path Validation**: All paths validated to prevent directory traversal
+3. **Permission Checks**: Respects file system permissions
+4. **Read-Only Mode**: Optional read-only configuration
+5. **Deny Lists**: Exclude specific paths or patterns
+
+## Configuration Options
+
+Typical configuration includes:
+
+- **allowedDirectories**: List of directories AI can access
+- **readOnly**: Restrict to read-only operations
+- **excludePatterns**: Patterns for files to exclude (e.g., `.env`, `*.key`)
+- **maxFileSize**: Limit on file sizes that can be read
+
+## Use Cases
+
+- **Code Analysis**: Read and analyze codebases
+- **File Management**: Organize and restructure project files
+- **Configuration Management**: Update configuration files
+- **Log Analysis**: Read and parse log files
+- **Documentation Generation**: Create and update documentation
+- **Build Artifact Management**: Manage build outputs
+- **Data Processing**: Read and write data files
+
+## Best Practices
+
+**Security:**
+- Always configure `allowedDirectories` explicitly
+- Use read-only mode when write access isn't needed
+- Exclude sensitive file patterns (credentials, keys)
+- Set appropriate `maxFileSize` limits
+
+**Performance:**
+- Limit directory tree depth for listing operations
+- Use specific search patterns to reduce file scanning
+- Consider file size limits for read operations
+
+## Integration
+
+Part of the official modelcontextprotocol/servers repository. Compatible with:
+
+- Claude Desktop
+- Claude Code
+- Cursor
+- VS Code with Copilot
+- Windsurf
+- Other MCP clients
+
+## Technical Details
+
+- TypeScript/JavaScript implementation
+- Cross-platform support (Windows, macOS, Linux)
+- Async file operations
+- Stream support for large files
+- UTF-8 encoding support
+
+## Example Configuration
+
+```json
+{
+  "mcpServers": {
+    "filesystem": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-filesystem",
+        "/path/to/allowed/directory"
+      ]
+    }
+  }
+}
+```
 
 ## Pricing
 
-- **Open Source / Free** under the MIT License. No paid plans.
-
-## Links
-- [Repository](https://github.com/MarcusJellinghaus/mcp_server_filesystem)
-- [MCP Python SDK](https://github.com/MarcusJellinghaus/mcp_python_sdk)
-- [MCP Python Code Checker](https://github.com/MarcusJellinghaus/mcp_python_code_checker)
+Free and open-source under the MIT License.

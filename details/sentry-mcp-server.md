@@ -1,37 +1,167 @@
-# Sentry MCP Server
+## Overview
 
-**Category:** Cloud DevOps MCP Servers  
-**Tags:** sentry, monitoring, automation, mcp  
-**Source:** [Sentry MCP Server Documentation](https://docs.sentry.io/product/sentry-mcp/)
+The Sentry MCP Server provides comprehensive error monitoring and AI observability for Model Context Protocol implementations. It serves two main purposes: enabling LLM clients to interact with Sentry for error analysis, and monitoring your own MCP servers in production.
 
-## Description
-The Sentry MCP Server is a community MCP (Model Context Protocol) Server for Sentry that clusters errors and enables automated bug fixing and incident management within the MCP architecture. It provides a secure way to bring Sentry's issue context into systems that support MCP and allows integration with LLM (Large Language Model) clients.
+## Dual Functionality
 
-## Features
-- **Secure Connectivity:** Connects Sentry issues and debugging data to LLM clients using MCP.
-- **Remote and Local Operation:** Can run as a remote server hosted by Sentry or locally in STDIO mode.
-- **OAuth Authentication:** Supports OAuth authentication for secure access.
-- **Issue and Error Access:** Retrieve and query Sentry issues and errors from connected MCP clients.
-- **Search Functionality:** Search for errors in specific files across projects.
-- **Project and Organization Queries:** Query Sentry projects and organizations.
-- **DSN Management:** List and create Sentry DSNs for projects.
-- **Autofix Integration:** Execute autofix runs, retrieve status, and get details for automated bug fixing.
-- **LLM Integration:** Use Sentry tools directly in LLM call workflows.
-- **Verified Client Support:** Works with Claude for Desktop, Claude.ai, Windsurf, Cursor, VS Code, and GitHub Copilot.
+**1. Sentry as an MCP Server**
+Connects your LLM client to Sentry using the Model Context Protocol, giving your AI tools direct access to issues, errors, projects, and Seer AI-powered analysis.
 
-## Example Use Cases
-- List issues in a project.
-- Check for errors in specific files and propose solutions.
-- Diagnose and analyze specific issues.
-- Create new Sentry projects and set up instrumentation.
-- Use autofix to propose and apply solutions for issues.
+**2. Monitoring Your MCP Servers**
+Monitor your own MCP server implementations using Sentry for errors, traces, and logs with automatic instrumentation and observability.
+
+## Key Features for Error Analysis
+
+- **Error Search**: Search errors across files and projects
+- **Issue Investigation**: Detailed analysis of specific issues
+- **Seer Integration**: AI-powered root cause analysis
+- **Release Management**: Track errors across releases
+- **Performance Monitoring**: Monitor application performance
+- **Custom Queries**: Advanced filtering and search capabilities
+- **Project Access**: Multi-project error tracking
+- **Team Collaboration**: Share insights across teams
+
+## Production Monitoring (Launched August 2025)
+
+Sentry's MCP Server Monitoring gives anyone building on MCP a clearer view into what's working (and what's not) behind the scenes. With just a few lines of code, teams can answer:
+
+- Which clients are experiencing errors?
+- Which tools are getting called the most?
+- Which tools are slow or failing?
+- Which inputs are causing breakage?
+- Are clients using outdated transports?
+- What's the traffic load on MCP servers?
+
+## What Gets Monitored
+
+Sentry automatically collects information about:
+
+- MCP server connections
+- Resource access patterns
+- Tool execution metrics
+- Error rates and types
+- Performance metrics
+- Client usage analytics
+- Transport protocol versions
+
+## Continuous AI for Error Monitoring
+
+The Sentry Mission Control Integration enables Continuous AI where AI agents autonomously detect, analyze, and fix production errors:
+
+1. Sentry detects an issue
+2. AI agent automatically analyzes the error
+3. Agent generates a fix
+4. Creates pull request automatically
+5. Validates the solution
+6. No manual intervention required
+
+## Integration Setup
+
+**JavaScript/TypeScript:**
+Integrates with MCP JavaScript SDK, automatically instrumenting tools, prompts, and resources.
+
+**Python:**
+Connects with MCP Python SDK, supporting both:
+- High-level FastMCP API
+- Low-level mcp.server.lowlevel.Server API
+
+Both implementations provide automatic instrumentation of tools, prompts, and resources.
+
+## Deployment Options
+
+**Hosted Service:**
+- Available at https://mcp.sentry.dev
+- OAuth authentication included
+- Nothing to install
+- Fully managed by Sentry
+
+**Self-Hosted:**
+- Available via GitHub (github.com/getsentry/sentry-mcp)
+- Full control over deployment
+- Custom configuration options
+
+## Observability Features
+
+**Real-Time Alerts:**
+- Immediate notification of errors
+- Threshold-based alerting
+- Custom alert rules
+
+**Distributed Tracing:**
+- Full request/response tracing
+- Performance bottleneck identification
+- Cross-service visibility
+
+**Error Grouping:**
+- Intelligent error aggregation
+- Fingerprinting for duplicate detection
+- Stack trace analysis
+
+**Performance Insights:**
+- Response time tracking
+- Throughput metrics
+- Resource utilization
+
+## Seer AI-Powered Analysis
+
+Seer provides:
+
+- Automatic root cause identification
+- Pattern recognition across errors
+- Suggested fixes based on similar issues
+- Impact analysis
+- Trend detection
+
+## Use Cases
+
+- **Production Debugging**: Investigate and fix errors in real-time
+- **MCP Server Monitoring**: Track health of your MCP implementations
+- **Performance Optimization**: Identify and resolve bottlenecks
+- **Client Analytics**: Understand how AI clients use your servers
+- **Autonomous Error Resolution**: Let AI agents fix issues automatically
+- **Release Validation**: Monitor errors across deployments
+- **Team Collaboration**: Share error insights and solutions
+
+## Security
+
+- OAuth 2.0 authentication
+- Project-level access controls
+- API key management
+- Audit logging
+- PII data scrubbing
+- GDPR compliance
+
+## Compatible MCP Clients
+
+- Claude Desktop
+- Claude Code
+- Cursor
+- VS Code with Copilot
+- Continue
+- Custom MCP implementations
+
+## Why Monitor MCP Servers?
+
+"MCP is the fastest-growing protocol of the AI era, but when an MCP server breaks it can be tough to figure out what went wrong," says Sentry CEO Milin Desai.
+
+Development teams needed visibility into:
+- Traffic load and AI client usage
+- Which tools are called most frequently
+- Tool performance and failure rates
+- Input patterns causing errors
+- Client version adoption
+
+All of this without relying on users to report issues.
+
+## Dashboard & Analytics
+
+- Visual error trends
+- Performance graphs
+- Client usage statistics
+- Tool execution metrics
+- Custom dashboards
+- Export capabilities
 
 ## Pricing
-No specific pricing information was provided in the available content. The Sentry MCP Server is currently in beta.
 
-## Additional Information
-- The Sentry MCP Server is currently in beta and may have bugs.
-- Feedback and contributions are welcome via GitHub.
-
----
-**Slug:** sentry-mcp-server
+Sentry subscription required. Pricing based on event volume and features. Free tier available for development.

@@ -1,71 +1,60 @@
-# supabase-mcp-server
+## Overview
 
-Supabase MCP Server enables tools like Cursor and Windsurf to manage Supabase databases and execute SQL queries via the MCP (Model Context Protocol) protocol. It provides a feature-rich server for database management, SQL execution, and programmatic access to the Supabase Management API with built-in safety controls.
+The Supabase MCP server connects Supabase projects to AI assistants like Cursor, Claude, and Windsurf using the Model Context Protocol. It standardizes how Large Language Models talk to Supabase, allowing them to perform tasks like managing tables, fetching config, and querying data.
 
-- **Source:** [https://github.com/alexander-zuev/supabase-mcp-server](https://github.com/alexander-zuev/supabase-mcp-server)
+## Key Features
 
-## Features
+- **Project Management**: Create and manage Supabase projects directly from AI tools
+- **Database Design**: Design tables and generate migrations using natural language
+- **Data Querying**: Query data and run reports using SQL through conversational commands
+- **Branch Management**: Manage branches, configurations, and TypeScript types
+- **Over 20 Tools**: Comprehensive toolset for database design, data querying, and project administration
+- **Project Scoping**: Limit access to specific projects for enhanced security
+- **Read-Only Mode**: Execute SQL as a read-only PostgreSQL user to prevent write operations
+- **Branching Support**: Create development branches to test changes before merging to production
 
-### Compatibility
-- Supports Cursor, Windsurf, Cline, and any MCP client supporting the stdio protocol.
+## Security Features (2026)
 
-### SQL Query Execution
-- Control over read-only and read-write modes for SQL queries.
-- Robust transaction handling for both direct and pooled database connections.
-- Supports:
-  - Read operations (SELECT)
-  - Data Manipulation Language (INSERT, UPDATE, DELETE)
-  - Data Definition Language (CREATE, ALTER, DROP) (DDL requires read-write mode and sufficient permissions).
-- Safety features:
-  - Starts in read-only mode by default.
-  - Requires explicit mode switch for write operations.
-  - Automatically resets to read-only after write operations.
-  - Intelligent transaction state detection.
+The server includes several important security capabilities:
 
-### Database Exploration Tools
-- `get_db_schemas`: List all database schemas with sizes and table counts.
-- `get_tables`: List tables in a schema with sizes, row counts, and metadata.
-- `get_table_schema`: Detailed table structure, columns, keys, relationships.
-- `execute_sql_query`: Execute raw SQL queries with support for all PostgreSQL operations. Supports transaction control (BEGIN, COMMIT, ROLLBACK).
+**Project Scoping**: Scope your MCP server to a specific project, limiting access to only that project's resources and preventing LLMs from accessing data from other projects in your Supabase account.
 
-### Supabase Management API Access
-- Manage Supabase projects via the Management API.
-- Tools:
-  - `send_management_api_request`: Send arbitrary requests with auto-injection of project ref and safety mode.
-  - `get_management_api_spec`: Retrieve enriched API specification with safety information.
-  - `get_management_api_safety_rules`: Retrieve all safety rules including blocked and unsafe operations.
-  - `live_dangerously`: Switch between safe and unsafe modes.
-- Safety features:
-  - API methods categorized as safe, unsafe, or blocked.
-  - Blocked operations (e.g., deleting projects/databases) are never allowed.
-- Management API tools only work with remote Supabase projects.
+**Read-Only Flag**: Set a `--read-only` flag on the CLI command to prevent write operations on databases by executing SQL as a read-only Postgres user.
 
-### Supabase Auth Admin Tools
-- Direct access to Supabase Auth Admin methods via Python SDK:
-  - `get_user_by_id`, `list_users`, `create_user`, `delete_user`, `invite_user_by_email`, `generate_link`, `update_user_by_id`, and more.
-  - Supports retrieving documentation for all Auth Admin methods.
-  - Returns structured Python objects.
-  - Handles UUID validation and error reporting.
+**Safe Branching**: Use Supabase's branching feature to create a development branch for your database, allowing you to test changes in a safe environment before merging them to production.
 
-### Installation & Configuration
-- Installable via pipx, uv, or manually from source.
-- Compatible with Python 3.12+ and PostgreSQL 16+.
-- Supports both local and remote Supabase instances.
-- Configuration via environment variables, local `.env` file, or global config file.
+## Authentication
 
-### Logging & Debugging
-- Writes detailed logs to a local log file for troubleshooting.
-- Includes an MCP Inspector tool for debugging MCP server issues.
+By default, the hosted Supabase MCP server uses dynamic client registration to authenticate with your Supabase org, meaning you don't need to manually create a personal access token (PAT) or OAuth app to use the server.
 
-### Other Features
-- Pre-built tools for seamless integration with Cursor & Windsurf.
-- Dead-simple install & setup via package manager.
-- Supports multiple Supabase regions.
+## Supported AI Tools
 
-### Roadmap Highlights
-- Stronger SQL query validation.
-- Improved access to API specs and logs.
-- CLI integration and better local database management support in future releases.
+- Cursor
+- Claude (Claude Desktop and Claude Code)
+- Windsurf
+- Visual Studio Code (Copilot)
+- Cline
+- More tools expected as they adopt the MCP standard
+
+## Use Cases
+
+- Natural language database schema design
+- AI-assisted query writing and optimization
+- Database migration generation
+- Project configuration management
+- Data exploration and analysis
+- Development branch testing
+- TypeScript type generation
+
+## Technical Details
+
+- Built on PostgreSQL
+- RESTful API via PostgREST
+- Real-time subscriptions
+- Row-level security
+- Authentication and authorization
+- Storage and file management
 
 ## Pricing
-No pricing information is provided; the project is open source under the Apache-2.0 license.
+
+Free tier available. Paid plans based on Supabase project usage.

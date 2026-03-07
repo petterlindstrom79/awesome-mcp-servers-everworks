@@ -1,93 +1,97 @@
-# Linear MCP Server
-
-An MCP server that connects to Linear via API key, enabling issue tracking, project management, and sprint/bug workflows for software teams.
-
 ## Overview
 
-- **Type:** MCP server / integration
-- **Category:** Project management MCP servers
-- **Authentication:** Linear API key
-- **MCP Server URL:** `https://mcp.pipedream.net/v2`
+The Linear MCP Server provides a standardized interface to interact with Linear's issue tracking system, enabling comprehensive project management, issue tracking, and automation through the Model Context Protocol.
 
-## Features
+## Key Features
 
-### Connectivity & Setup
-- Connects to a Linear workspace using an API key.
-- Single static MCP server URL that works for all clients.
-- Can be added to any compatible chat or MCP-enabled application.
+- **Issue Management**: Create, update, and delete issues (including subissues) with self-assign capabilities
+- **Advanced Search**: Search issues using text queries and filters with logical operators and relative date filtering
+- **Project & Team Management**: Retrieve projects, create project updates with health status tracking
+- **Label Management**: Organize and categorize issues with labels
+- **Comment System**: List and create comments on issues
+- **User Management**: List users and retrieve user details
+- **Status Tracking**: Manage and view issue statuses
+- **Type-Safe Operations**: Comprehensive error handling and input validation
+- **Rate Limit Management**: Built-in rate limiting for API stability
 
-### Issue Management
-- **Create Issue**
-  - Create new Linear issues.
-  - Required: team ID and title.
-  - Optional fields: description, assignee, project, state.
-  - Returns success status and full issue details.
-  - Authenticated via API key.
+## Available Tools (21 Total)
 
-- **Update Issue**
-  - Update existing Linear issues.
-  - Supports modifying:
-    - Title
-    - Description
-    - Assignee
-    - State
-    - Project
-    - Team
-    - Labels
-    - Priority
-    - Dates
-  - Returns updated issue details.
-  - Authenticated via API key.
+The Linear MCP server provides 21 specialized tools:
 
-- **Get Issue**
-  - Retrieve a single issue by ID.
-  - Returns detailed issue data including:
-    - Title and description
-    - State
-    - Assignee
-    - Team
-    - Project
-    - Labels
-    - Timestamps
-  - Authenticated via API key.
+**Issue Operations:**
+- list_issues: List all issues with optional filters
+- get_issue: Get detailed issue information with relationships
+- create_issue: Create new issues with full metadata
+- update_issue: Modify existing issues
+- list_my_issues: Get issues assigned to current user
 
-- **Search Issues**
-  - Search issues with multiple filters:
-    - Team
-    - Project
-    - Assignee
-    - Labels
-    - State
-    - Text query
-  - Supports:
-    - Pagination
-    - Ordering
-    - Inclusion of archived issues
-  - Returns an array of matching issues.
-  - Authenticated via API key.
+**Project Management:**
+- list_projects: Retrieve all projects
+- get_project: Get detailed project information
+- create_project: Create new projects
+- update_project: Modify project details
+- create_project_update: Add project updates with health status
 
-### Team & Project Management
-- **Get Teams**
-  - Retrieve all teams in a Linear workspace.
-  - Returns team objects with details such as ID, name, and key.
-  - Supports pagination with configurable limit.
-  - Authenticated via API key.
+**Team & User:**
+- list_teams: List teams with filtering by name/key
+- get_team: Get detailed team information
+- list_users: List all users
+- get_user: Get user details
 
-- **List Projects**
-  - List projects in Linear.
-  - Uses API key authentication (via MCP server).
+**Additional:**
+- list_comments: View issue comments
+- create_comment: Add comments to issues
+- list_issue_statuses: View available statuses
+- get_issue_status: Get status details
+- list_labels: Manage labels
+- search_documentation: Search Linear documentation
 
-- **Create Project**
-  - Create new projects in Linear.
-  - Uses API key authentication (via MCP server).
+## Search Capabilities
+
+Advanced filtering supports:
+
+- Assignee, creator, project filters
+- Status and priority filtering
+- Date range queries (created, updated, completed)
+- Label-based filtering
+- Logical operators for complex queries
+- Relative date expressions
 
 ## Use Cases
 
-- Manage software project issues (create, update, search) directly from MCP-enabled tools.
-- Inspect and retrieve detailed issue information by ID.
-- Browse and manage teams and projects within a Linear workspace.
-- Support sprint planning, bug tracking, and task management workflows through MCP actions.
+- Automated bug tracking and triage
+- AI-powered issue creation from error logs
+- Project status reporting
+- Sprint planning automation
+- Issue dependency analysis
+- Team workload management
+- Custom workflow automation
+- Release planning assistance
+
+## Multiple Implementations
+
+Several providers offer Linear MCP servers:
+
+- @cosmix/linear-mcp
+- Composio Linear MCP Integration
+- Tacticlaunch Linear server
+- Zalab Inc Linear Issue Tracker
+- Official Linear MCP (latest)
+
+Each offers similar core functionality with varying features and deployment options.
+
+## Integration
+
+Compatible with AI assistants including Claude Desktop, Cursor, Windsurf, VS Code with Copilot, and other MCP-compatible tools.
+
+## Technical Quality
+
+- Type-safe TypeScript/JavaScript implementation
+- Comprehensive error handling
+- Input validation
+- Rate limit management
+- Well-documented API
 
 ## Pricing
 
-- No pricing information is provided in the available content. Pricing, if applicable, would need to be checked on the provider’s site.
+Linear subscription required. Pricing based on Linear plan tier.
