@@ -1,5 +1,13 @@
-# server-google-maps
+## Overview
 
-An official MCP server that exposes Google Maps location services, including routing and place details, to AI agents.
+MCP for Google Maps APIs.
 
-[https://mcp.so/server/google-maps](https://mcp.so/server/google-maps)
+## Features
+
+- Location services
+- Routing
+- Place details
+
+## Pricing
+
+Requires Google API key.

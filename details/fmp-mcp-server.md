@@ -1,20 +1,5 @@
-# Fmp MCP Server
+# fmp-mcp-server
 
-**Category:** Business & Commerce MCP Servers  
-**Tags:** finance, market-data, api-integration, mcp
+MCP server enabling M&A analysis and investment banking workflows. Access company profiles, financial statements, ratios, and perform sector analysis with Financial Modeling Prep APIs.
 
-## Description
-Fmp MCP Server is an MCP server that provides comprehensive financial data using the Financial Modeling Prep API. It supports access to company profiles, financial metrics, filings, and other financial information through MCP endpoints.
-
-## Features
-- Provides financial data from the Financial Modeling Prep API
-- Supports company profiles
-- Access to financial metrics
-- Access to company filings
-- Data delivered via MCP endpoints
-
-## Pricing
-No pricing information is provided.
-
-## Source
-[https://pypi.org/project/mseep-fmp-mcp-server/](https://pypi.org/project/mseep-fmp-mcp-server/)
+[https://github.com/modelcontextprotocol/servers/tree/main/src/fmp-mcp-server](https://github.com/modelcontextprotocol/servers/tree/main/src/fmp-mcp-server)

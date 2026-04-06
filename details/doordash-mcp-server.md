@@ -1,17 +1,5 @@
-# DoorDash-MCP-Server
+# DoorDash MCP Server
 
-An unofficial MCP server implementation for DoorDash Delivery integration, enabling automated delivery workflows via the Model Context Protocol.
+Unofficial MCP server for DoorDash Delivery services. Allows AI agents to interact with DoorDash APIs for delivery-related tasks.
 
-- **Source:** [GitHub Repository](https://github.com/JordanDalton/DoorDash-MCP-Server)
-- **Category:** Business & Commerce MCP Servers
-- **Tags:** doordash, delivery, workflow, mcp
-
-## Features
-- Implements the Model Context Protocol (MCP) for integration with DoorDash Delivery services
-- Enables automated delivery workflows
-- Compatible with MCP clients such as Claude Desktop, Windsurf, and Cursor
-- TypeScript-based project with build scripts
-- Produces configuration JSON for easy client integration
-
-## Pricing
-No pricing information provided; the repository appears to be open source and freely available.
+[https://github.com/jordandalton/doordash-mcp-server](https://github.com/jordandalton/doordash-mcp-server)

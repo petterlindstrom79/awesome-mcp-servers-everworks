@@ -1,5 +1,10 @@
-#Todoist MCP Server
+## Overview
 
-An MCP server that connects to the Todoist task management platform, allowing LLMs to create, read, and manage tasks and projects.
+MCP server for Todoist integration with natural language task management.
 
-[https://github.com/abhiz123/todoist-mcp-server](https://github.com/abhiz123/todoist-mcp-server)
+## Features
+
+- Create and manage Todoist tasks
+- Natural language task input
+- Project organization
+- Claude Desktop integration

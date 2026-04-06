@@ -1,32 +1,22 @@
-# SQLite MCP Server
-
-**Category:** Database MCP Servers  
-**Brand:** SQLite  
-**Source:** https://github.com/prayanks/mcp-sqlite-server
-
 ## Overview
-SQLite MCP Server provides Model Context Protocol (MCP) server implementations for interacting with SQLite databases from an MCP-compatible client. It includes both SDIO and SSE variants, enabling database access and basic querying/analysis workflows against SQLite databases.
+
+SQLite MCP Server was a reference implementation that demonstrated database interaction and business intelligence capabilities through the Model Context Protocol. It has been archived and can be found in the servers-archived branch.
 
 ## Features
-- **MCP server for SQLite**
-  - Exposes a SQLite database to MCP-compatible clients.
-  - Designed for database interaction and business-intelligence-style querying.
 
-- **Two implementation modes**
-  - **SDIO implementation** via `sqlite_sdio_mcp_server.py`.
-  - **SSE implementation** via `sqlite_sse_mcp_server.py`.
+- SQLite database access and querying
+- Schema inspection capabilities
+- Business intelligence queries
+- Demonstrates database integration patterns
 
-- **SQLite database integration**
-  - Uses standard SQLite `.db` files.
-  - Includes a sample `startups.db` database in the repository for testing.
+## Status
 
-- **Sample configuration and utilities**
-  - `claude_desktop_config.json.sample` for example MCP client configuration.
-  - `create_sample_db.py` for generating a sample SQLite database.
-  - `install_sdio.py` helper script for installing / wiring up the SDIO server.
+This server is now archived and maintained as a reference example in the servers-archived branch of the modelcontextprotocol/servers repository.
 
-- **Open-source licensing**
-  - Released under the MIT License.
+## Purpose
+
+As a reference server, it demonstrated how MCP can enable LLMs to interact with SQLite databases securely for data analysis and business intelligence use cases.
 
 ## Pricing
-- Not specified in the available content. The project is open source under the MIT License and can be used accordingly.
+
+Free and open-source reference implementation.

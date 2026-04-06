@@ -1,26 +1,5 @@
 # GitMCP
 
-GitMCP is a free MCP server solution that utilizes Next.js and Vercel to provide an accessible platform for deploying and managing MCP servers. It is particularly relevant for users looking to host and orchestrate MCP servers, especially in the context of the Mantle Network.
+gitmcp.io is a generic remote MCP server to connect to ANY GitHub repository or project documentation effortlessly. Provides seamless access to repository documentation and code context.
 
-## Features
-- Free MCP server hosting using Vercel
-- Built with Next.js for modern server-side rendering and deployment
-- Designed to read statistics from top protocols in the Mantle Network, supporting informed decision-making
-- Easily configurable: update `api/server.ts` with custom tools, prompts, and resources using the MCP TypeScript SDK
-- Includes a sample client (`scripts/test-client.mjs`) for testing server invocations
-- Open source and customizable for different MCP server needs
-
-## Category
-- MCP Middleware Orchestration
-
-## Tags
-- mcp
-- deployment
-- nextjs
-- server
-
-## Source
-[GitMCP on GitHub](https://github.com/sweetmantech/next-mcp)
-
-## Pricing
-- Free (open source)
+[https://gitmcp.io](https://gitmcp.io)
